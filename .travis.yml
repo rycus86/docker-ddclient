@@ -10,4 +10,4 @@ script:
 env:
   matrix:
   - DOCKER_TAG=latest DOCKERFILE=Dockerfile
-  - DOCKER_TAG=armhf  DOCKERFILE=armhf
+  - DOCKER_TAG=armhf  DOCKERFILE=Dockerfile.armhf
