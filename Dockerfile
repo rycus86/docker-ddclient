@@ -1,7 +1,7 @@
 FROM debian:jessie-slim
 
 RUN apt-get update  \
-     && apt-get install -y --no-install-recommends ddclient libio-socket-ssl-perl  \
+     && apt-get install -y --no-install-recommends ddclient libio-socket-ssl-perl ca-certificates  \
      && rm -rf /var/lib/apt/lists/*
 
 ADD entrypoint.sh /entrypoint.sh
