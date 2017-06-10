@@ -1,0 +1,13 @@
+sudo: required
+
+services:
+- docker
+
+script:
+- docker run --rm --privileged multiarch/qemu-user-static:register --reset
+- docker build -t ddclient:$DOCKER_TAG -f $DOCKERFILE .
+
+env:
+  matrix:
+  - DOCKER_TAG=latest DOCKERFILE=Dockerfile
+  - DOCKER_TAG=armhf  DOCKERFILE=armhf
