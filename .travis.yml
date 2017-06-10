@@ -4,10 +4,21 @@ services:
 - docker
 
 script:
+# setup QEMU
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
+# build
 - docker build -t ddclient:$DOCKER_TAG -f $DOCKERFILE .
+# test
+- docker run --rm -it ddclient:$DOCKER_TAG --help | grep -A 10 'ddclient version'
+# push image
+- >
+  if [ "$DOCKER_PUSH" == "yes" ]; then
+    docker login -u="rycus86" -p="$DOCKER_PASSWORD"
+    docker tag ddclient:$DOCKER_TAG rycus86/ddclient:$DOCKER_TAG
+    docker push rycus86/ddclient:$DOCKER_TAG
+  fi
 
 env:
   matrix:
   - DOCKER_TAG=latest DOCKERFILE=Dockerfile
-  - DOCKER_TAG=armhf  DOCKERFILE=Dockerfile.armhf
+  - DOCKER_TAG=armhf  DOCKERFILE=Dockerfile.armhf DOCKER_PUSH=yes
