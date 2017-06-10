@@ -4,7 +4,7 @@ This project builds Docker images with ddclient installed to allow DynDNS update
 
 ### Usage:
 
-`docker run -d -it -v /etc/ddclient.conf:/etc/ddclient.conf --name ddclient rycus86/ddclient --daemon=500 --debug`
+`docker run -d -it -v /etc/ddclient.conf:/etc/ddclient.conf --name ddclient rycus86/ddclient --daemon=500 --ssl --debug`
 
 ### Docker Hub
 
