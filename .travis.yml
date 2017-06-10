@@ -16,6 +16,8 @@ script:
     docker login -u="rycus86" -p="$DOCKER_PASSWORD"
     docker tag ddclient:$DOCKER_TAG rycus86/ddclient:$DOCKER_TAG
     docker push rycus86/ddclient:$DOCKER_TAG
+  else
+    echo 'Not pushing to Docker Hub'
   fi
 
 env:
