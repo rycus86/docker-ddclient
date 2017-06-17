@@ -8,10 +8,11 @@ This project builds Docker images with ddclient installed to allow DynDNS update
 
 - `latest`: the default
 - `armhf`: to use on `armhf` hosts (like the Raspberry Pi)
+- `aarch64`: to use on `aarch64` (or `arm64v8`) hosts (like the Pine 64)
 
 ### Usage
 
-`docker run -d -it -v /etc/ddclient.conf:/etc/ddclient.conf --name ddclient rycus86/ddclient --daemon=500 --ssl --debug`
+`docker run -d -it -v /etc/ddclient.conf:/etc/ddclient.conf --name ddclient rycus86/ddclient --daemon=300 --ssl --debug`
 
 ### Docker Hub
 
