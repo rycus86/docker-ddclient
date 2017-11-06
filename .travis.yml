@@ -8,7 +8,7 @@ install: skip
 jobs:
   include:
     - &deploy-stage
-      stage: deploy
+      stage: build and deploy
       if: branch = master
       script:
         - docker run --rm --privileged multiarch/qemu-user-static:register --reset
